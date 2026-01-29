@@ -8,7 +8,7 @@ export default function Header() {
   const [activeLink, setActiveLink] = useState("#home");
 
   const navLinks = [
-    { name: "About Us", href: "#home" },
+    { name: "Home", href: "#home" },
     { name: "Services", href: "#services" },
     { name: "Portfolio", href: "#portfolio" },
     { name: "FAQ", href: "#faq" },
