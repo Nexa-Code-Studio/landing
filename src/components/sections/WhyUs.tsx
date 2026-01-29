@@ -16,13 +16,13 @@ const reasons = [
     },
     {
         icon: MessageCircle,
-        title: "Konsultasi Bahasa Manusia",
+        title: "Konsultasi Gratis",
         desc: "Kami tidak akan membingungkan Anda dengan istilah IT yang rumit. Kami bicara tentang solusi bisnis Anda.",
     },
     {
         icon: HeartHandshake,
-        title: "Dukungan Penuh (After Sales)",
-        desc: "Software sudah jadi bukan berarti hubungan berakhir. Kami siap bantu jika ada kendala atau butuh tambah fitur.",
+        title: "Dukungan Penuh",
+        desc: "Kami siap membantu jika ada kendala atau butuh tambah fitur.",
     },
 ];
 
@@ -47,14 +47,14 @@ export default function WhyUs() {
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ delay: i * 0.1, duration: 0.5 }}
                             viewport={{ once: true }}
-                            className="flex gap-6 p-6 rounded-2xl bg-white shadow-sm border border-gray-100 hover:shadow-md transition-all"
+                            className="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:bg-orange-400 transition-all duration-300 flex items-center gap-6"
                         >
-                            <div className="shrink-0 w-14 h-14 bg-orange-50 rounded-full flex items-center justify-center text-orange-600">
+                            <div className="shrink-0 w-14 h-14 flex items-center justify-center text-orange-400 group-hover:text-white transition-colors">
                                 <r.icon size={28} />
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">{r.title}</h3>
-                                <p className="text-gray-600 leading-relaxed text-sm">{r.desc}</p>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-white transition-colors">{r.title}</h3>
+                                <p className="text-gray-600 leading-relaxed text-sm group-hover:text-orange-50 transition-colors">{r.desc}</p>
                             </div>
                         </motion.div>
                     ))}
