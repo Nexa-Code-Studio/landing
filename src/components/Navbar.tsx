@@ -3,9 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const [activeLink, setActiveLink] = useState("#home");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
     { name: "Home", href: "#home" },
@@ -67,7 +69,7 @@ export default function Header() {
                 if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 setActiveLink(link.href);
               }}
-              className={`relative transition-colors ${activeLink === link.href ? "text-orange-400" : "hover:text-orange-600"
+              className={`relative transition-colors ${activeLink === link.href ? "text-orange-400" : "hover:text-orange-400"
                 }`}
             >
               {link.name}
@@ -90,6 +92,56 @@ export default function Header() {
             Contact
           </Link>
         </nav>
+
+        {/* Mobile Hamburger */}
+        <div className="md:hidden">
+          <button
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            onClick={() => setMobileOpen((s) => !s)}
+            className="p-2 rounded-md text-gray-700 hover:bg-gray-100"
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Nav Panel */}
+      <div className={`md:hidden bg-white border-b border-gray-100 shadow-sm ${mobileOpen ? 'block' : 'hidden'}`}>
+        <div className="mx-auto max-w-6xl px-6 pb-6 pt-2">
+          <div className="flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const id = link.href.replace('#', '');
+                  const el = document.getElementById(id);
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  setActiveLink(link.href);
+                  setMobileOpen(false);
+                }}
+                className={`block py-3 px-2 rounded-md text-base font-medium ${activeLink === link.href ? 'text-orange-400' : 'text-gray-700 hover:text-orange-400'}`}
+              >
+                {link.name}
+              </a>
+            ))}
+
+            <a
+              href="#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setActiveLink('#contact');
+                setMobileOpen(false);
+              }}
+              className="mt-2 inline-block w-full text-center bg-orange-400 text-white px-4 py-3 rounded-full font-semibold"
+            >
+              Contact
+            </a>
+          </div>
+        </div>
       </div>
     </header>
   );
