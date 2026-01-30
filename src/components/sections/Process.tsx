@@ -76,7 +76,7 @@ export default function Process() {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.2, duration: 0.5 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: false, amount: 0.2 }}
                                 className="relative bg-white pt-4 md:pt-0 z-20"
                             >
                                 <div className="w-24 h-24 mx-auto bg-white border-4 border-orange-50 rounded-full flex items-center justify-center mb-6 text-orange-400 shadow-sm">

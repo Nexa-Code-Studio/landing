@@ -46,7 +46,7 @@ export default function WhyUs() {
                             initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ delay: i * 0.1, duration: 0.5 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false, amount: 0.2 }}
                             className="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:bg-orange-400 transition-all duration-300 flex items-center gap-6"
                         >
                             <div className="shrink-0 w-14 h-14 flex items-center justify-center text-orange-400 group-hover:text-white transition-colors">

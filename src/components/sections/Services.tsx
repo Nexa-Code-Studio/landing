@@ -47,8 +47,8 @@ export default function Services() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              viewport={{ once: true }}
-              className="group relative rounded-2xl overflow-hidden bg-gray-900 hover:scale-105 transition-transform duration-300 cursor-pointer h-[400px]"
+              viewport={{ once: false, amount: 0.2 }}
+              className="group relative rounded-2xl overflow-hidden bg-gray-900 hover:scale-105 transition-transform duration-300 cursor-pointer h-100"
             >
               {/* Background Image */}
               <div className="absolute inset-0 z-0">
@@ -61,7 +61,7 @@ export default function Services() {
               </div>
 
               {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent z-10" />
 
               {/* Content */}
               <div className="relative z-20 h-full flex flex-col justify-between p-6">

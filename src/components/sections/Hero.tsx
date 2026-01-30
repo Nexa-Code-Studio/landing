@@ -29,10 +29,10 @@ export default function Hero() {
       className="relative overflow-hidden -mt-20 pt-24 pb-20 lg:pt-32 lg:pb-28 px-6 md:px-12 bg-white group"
     >
       {/* Top Background Gradient */}
-      <div className="absolute top-0 inset-x-0 h-96 bg-gradient-to-b from-orange-50/50 to-transparent pointer-events-none -z-10" />
+      <div className="absolute top-0 inset-x-0 h-96 bg-linear-to-b from-orange-50/50 to-transparent pointer-events-none -z-10" />
 
       {/* Base Background Decoration */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-100/40 blur-3xl rounded-full opacity-60 z-0 pointer-events-none translate-x-1/3 -translate-y-1/4" />
+      <div className="absolute top-0 right-0 w-200 h-200 bg-orange-100/40 blur-3xl rounded-full opacity-60 z-0 pointer-events-none translate-x-1/3 -translate-y-1/4" />
 
       {/* Hover Orange Glow */}
       <div
@@ -50,8 +50,8 @@ export default function Hero() {
             absolute
             -top-40
             -left-40
-            w-[700px]
-            h-[700px]
+            w-175
+            h-175
             rounded-full
             bg-orange-400/20
             blur-3xl
@@ -67,8 +67,9 @@ export default function Hero() {
         <div className="text-center lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            viewport={{ once: false, amount: 0.2 }}
           >
             <motion.div
               initial={{ opacity: 1 }}
@@ -92,7 +93,7 @@ export default function Hero() {
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.15]">
               Solusi Digital yang Disesuaikan dengan{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-400">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-orange-400">
                 Cara Kerja Bisnis Anda
               </span>
             </h1>
@@ -100,8 +101,9 @@ export default function Hero() {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             className="mt-6 text-lg md:text-xl text-gray-600 leading-relaxed"
           >
             Kami membangun website dan perangkat lunak yang dirancang khusus untuk
@@ -111,8 +113,9 @@ export default function Hero() {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: false, amount: 0.2 }}
             className="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start gap-4"
           >
             <Link
@@ -136,11 +139,12 @@ export default function Hero() {
         <div className="relative">
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             className="relative z-10"
           >
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] lg:aspect-auto">
+            <div className="relative rounded-2xl overflow-hidden aspect-4/3 lg:aspect-auto">
               <Image
                 src="/images/heros.png"
                 alt="Tim NexaCode sedang bekerja"
@@ -150,7 +154,7 @@ export default function Hero() {
                 priority
               />
               {/* Image Overlay (very subtle) */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/5 to-transparent pointer-events-none" />
             </div>
           </motion.div>
 
@@ -161,17 +165,18 @@ export default function Hero() {
             { text: "Siap Pakai", x: 190, y: 40, delay: 0.7 },
             { text: "Solutif", x: -240, y: 180, delay: 0.9 },
             { text: "Berkualitas", x: -300, y: 10, delay: 1.1 },
-          ].map((word, i) => (
+          ].map((word) => (
             <motion.div
               key={word.text}
               initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{
                 delay: word.delay,
                 type: "spring",
                 stiffness: 100,
                 damping: 15,
               }}
+              viewport={{ once: false, amount: 0.2 }}
               className="absolute z-20 bg-white/90 backdrop-blur-sm border border-orange-100 shadow-lg px-5 py-2.5 rounded-full text-sm font-bold text-orange-400 hidden lg:block hover:scale-110 transition-transform cursor-default"
               style={{
                 top: "35%", // Adjusted center point
@@ -187,8 +192,9 @@ export default function Hero() {
           {/* Floating Badge */}
           <motion.div
             initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
+            whileInView={{ scale: 1 }}
             transition={{ delay: 1.2, type: "spring" }}
+            viewport={{ once: false, amount: 0.2 }}
             className="absolute -bottom-6 -right-6 lg:right-10 bg-orange-400 p-4 rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl rounded-br-none shadow-xl border border-orange-400 hidden md:block z-30"
           >
             <div className="flex items-center gap-3">

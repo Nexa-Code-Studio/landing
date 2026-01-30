@@ -65,10 +65,11 @@ export default function Portfolio() {
                 <motion.div
                   key={`${currentIndex}-${idx}`}
                   initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.5 }}
-                  className={`group relative rounded-2xl overflow-hidden bg-gray-900 hover:scale-105 transition-transform duration-300 cursor-pointer h-[400px] ${projects.length === 1 ? 'max-w-2xl' : ''}`}
+                  viewport={{ once: false, amount: 0.2 }}
+                  className={`group relative rounded-2xl overflow-hidden bg-gray-900 hover:scale-105 transition-transform duration-300 cursor-pointer h-100 ${projects.length === 1 ? 'max-w-2xl' : ''}`}
                 >
                   {/* Background Image */}
                   <div className="absolute inset-0 z-0">
@@ -81,7 +82,7 @@ export default function Portfolio() {
                   </div>
 
                   {/* Darker Bottom Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent z-10" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-transparent z-10" />
 
                   {/* Content - Positioned at Bottom */}
                   <div className="relative z-20 h-full flex flex-col justify-end p-8">

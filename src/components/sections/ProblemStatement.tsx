@@ -52,7 +52,7 @@ const AnimatedCross = () => (
 
 export default function ProblemStatement() {
     return (
-        <section className="pt-24 pb-[300px] px-6 md:px-14 bg-gray-50">
+        <section className="pt-24 pb-24 `md:pb-75` px-6 md:px-14 bg-gray-50">
             <div className="mx-auto max-w-7xl">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     {/* Left Column: Header & Image */}
@@ -61,7 +61,7 @@ export default function ProblemStatement() {
                             initial={{ opacity: 0, x: -50 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false, amount: 0.2 }}
                             className="text-left mb-10"
                         >
                             <h3 className="text-3xl md:text-3xl font-bold text-gray-900 mb-6 leading-tight">
@@ -78,8 +78,8 @@ export default function ProblemStatement() {
                             initial={{ opacity: 0, scale: 0.8 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            viewport={{ once: true }}
-                            className="relative w-full max-w-md mx-auto lg:mx-0 aspect-square md:aspect-[4/3] flex items-end justify-center lg:justify-start"
+                            viewport={{ once: false, amount: 0.2 }}
+                            className="relative w-full max-w-md mx-auto lg:mx-0 aspect-square `md:aspect-4/3` flex items-end justify-center lg:justify-start"
                         >
                             {/* Confused Hero */}
                             <div className="relative z-10 w-64 md:w-80">
@@ -131,7 +131,7 @@ export default function ProblemStatement() {
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: false, amount: 0.2 }}
                                 className="group bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:bg-orange-400 transition-all duration-300 flex items-center gap-4 cursor-default"
                             >
                                 <div className="shrink-0 text-red-500 group-hover:text-white transition-colors">
@@ -150,8 +150,8 @@ export default function ProblemStatement() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    viewport={{ once: true }}
-                    className="mt-80 text-center relative z-10"
+                    viewport={{ once: false, amount: 0.2 }}
+                    className="mt-20 md:mt-80 text-center relative z-10"
                 >
                     {/* Blurred Orange Background */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-24 bg-orange-400/20 blur-3xl rounded-full -z-10" />
