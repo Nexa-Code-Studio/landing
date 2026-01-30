@@ -32,7 +32,7 @@ export default function WhyUs() {
             <div className="mx-auto max-w-6xl">
                 <div className="mb-16 md:text-center max-w-3xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                        Mengapa Harus NexaCode?
+                        Mengapa Harus <span className="text-orange-400">NexaCode</span>?
                     </h2>
                     <p className="mt-4 text-xl text-gray-600">
                         Kami mengerti bahwa Anda ingin hasil jadi yang siap dipakai, bukan pusing memikirkan hal teknis.
