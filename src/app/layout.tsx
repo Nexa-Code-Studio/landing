@@ -15,3 +15,19 @@ export default function RootLayout({
     </html>
   );
 }
+
+export const metadata = {
+  icons: {
+    icon: [
+      {
+        url: "/images/logo-light.png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/images/logo-dark.png",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
+};
+
