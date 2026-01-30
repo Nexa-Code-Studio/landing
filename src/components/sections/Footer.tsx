@@ -31,7 +31,7 @@ export default function Footer() {
               Menu
             </p>
             <ul className="space-y-3">
-              <li><a href="#hero" className="hover:text-orange-400 transition">Home</a></li>
+              <li><a href="#home" className="hover:text-orange-400 transition">Home</a></li>
               <li><a href="#services" className="hover:text-orange-400 transition">Services</a></li>
               <li><a href="#portfolio" className="hover:text-orange-400 transition">Portfolio</a></li>
               <li><a href="#contact" className="hover:text-orange-400 transition">Contact</a></li>
