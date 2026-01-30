@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Header() {
   const [activeLink, setActiveLink] = useState("#home");
@@ -13,6 +13,28 @@ export default function Header() {
     { name: "Portfolio", href: "#portfolio" },
     { name: "FAQ", href: "#faq" },
   ];
+
+  // Observe sections to update active nav link when scrolling
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const sections = Array.from(document.querySelectorAll('section[id]')) as HTMLElement[];
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveLink(`#${entry.target.id}`);
+          }
+        });
+      },
+      { root: null, rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-gray-200/50 shadow-[0_4px_20px_-2px_rgba(249,115,22,0.5)]">
@@ -38,7 +60,13 @@ export default function Header() {
             <Link
               key={link.name}
               href={link.href}
-              onClick={() => setActiveLink(link.href)}
+              onClick={(e) => {
+                e.preventDefault();
+                const id = link.href.replace('#', '');
+                const el = document.getElementById(id);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                setActiveLink(link.href);
+              }}
               className={`relative transition-colors ${activeLink === link.href ? "text-orange-400" : "hover:text-orange-600"
                 }`}
             >
@@ -51,6 +79,12 @@ export default function Header() {
 
           <Link
             href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.getElementById('contact');
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              setActiveLink('#contact');
+            }}
             className="rounded-full bg-orange-400 px-6 py-2.5 text-white hover:bg-orange-400 transition shadow-sm hover:shadow-md hover:shadow-orange-200"
           >
             Contact
