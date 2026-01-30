@@ -52,7 +52,7 @@ const AnimatedCross = () => (
 
 export default function ProblemStatement() {
     return (
-        <section className="pt-24 pb-24 `md:pb-75` px-6 md:px-14 bg-gray-50">
+        <section className="pt-24 pb-32 md:pb-80 px-6 md:px-14 bg-gray-50">
             <div className="mx-auto max-w-7xl">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     {/* Left Column: Header & Image */}
@@ -79,7 +79,7 @@ export default function ProblemStatement() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                             viewport={{ once: false, amount: 0.2 }}
-                            className="relative w-full max-w-md mx-auto lg:mx-0 aspect-square `md:aspect-4/3` flex items-end justify-center lg:justify-start"
+                            className="relative w-full max-w-md mx-auto aspect-square md:aspect-4/3 flex items-center justify-center"
                         >
                             {/* Confused Hero */}
                             <div className="relative z-10 w-64 md:w-80">
@@ -96,7 +96,7 @@ export default function ProblemStatement() {
                             <motion.div
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -top-6 right-12 md:right-32 z-20 w-24 md:w-24"
+                                className="absolute top-6 md:-top-2 right-6 md:right-20 z-20 w-20 md:w-24"
                             >
                                 <Image
                                     src="/images/think.png"
@@ -110,7 +110,7 @@ export default function ProblemStatement() {
                             <motion.div
                                 animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }}
                                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                className="absolute top-20 left-12 md:left-20 lg:left-10 z-20 w-16 md:w-20"
+                                className="absolute top-6 md:-top-2 left-6 md:left-10 lg:left-22 z-20 w-12 md:w-20"
                             >
                                 <Image
                                     src="/images/tandatanya.png"
