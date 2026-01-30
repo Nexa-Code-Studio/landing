@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import Image from "next/image";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Hero() {
   const [text, setText] = useState("");
@@ -22,6 +22,18 @@ export default function Hero() {
     }, 50);
     return () => clearInterval(interval);
   }, []);
+
+  // Smooth-scroll handler for the consultation button
+  const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const el = document.getElementById("contact");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      // fallback: update the hash so the browser can try to navigate
+      window.location.hash = "#contact";
+    }
+  };
 
   return (
     <section
@@ -120,6 +132,7 @@ export default function Hero() {
           >
             <Link
               href="#contact"
+              onClick={handleScrollToContact}
               className="group/button flex items-center justify-center gap-2 rounded-full bg-gray-900 px-8 py-4 text-white text-base font-semibold hover:bg-orange-400 transition-all hover:scale-105"
             >
               Konsultasi Gratis

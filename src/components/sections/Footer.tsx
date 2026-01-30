@@ -1,6 +1,18 @@
+"use client";
+import React from "react";
 import Image from "next/image";
 
 export default function Footer() {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const id = href.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.location.hash = href.startsWith('#') ? href : `#${href}`;
+    }
+  };
   return (
     <footer className="relative overflow-hidden border-t border-gray-200 bg-gray-50 text-gray-600">
       <div className="mx-auto max-w-6xl px-6 md:px-12 py-16">
@@ -31,10 +43,42 @@ export default function Footer() {
               Menu
             </p>
             <ul className="space-y-3">
-              <li><a href="#home" className="hover:text-orange-400 transition">Home</a></li>
-              <li><a href="#services" className="hover:text-orange-400 transition">Services</a></li>
-              <li><a href="#portfolio" className="hover:text-orange-400 transition">Portfolio</a></li>
-              <li><a href="#contact" className="hover:text-orange-400 transition">Contact</a></li>
+              <li>
+                <a
+                  href="#home"
+                  onClick={(e) => handleSmoothScroll(e, '#home')}
+                  className="hover:text-orange-400 transition"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  onClick={(e) => handleSmoothScroll(e, '#services')}
+                  className="hover:text-orange-400 transition"
+                >
+                  Services
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#portfolio"
+                  onClick={(e) => handleSmoothScroll(e, '#portfolio')}
+                  className="hover:text-orange-400 transition"
+                >
+                  Portfolio
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  onClick={(e) => handleSmoothScroll(e, '#contact')}
+                  className="hover:text-orange-400 transition"
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
 
