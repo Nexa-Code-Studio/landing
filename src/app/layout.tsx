@@ -20,16 +20,10 @@ export default function RootLayout({
 }
 
 export const metadata = {
+  title: "nexacode.dev",
   icons: {
-    icon: [
-      {
-        url: "/images/logo-light.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/images/logo-dark.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-    ],
+    icon: "/images/logo-light.png",
+    shortcut: "/images/logo-light.png",
+    apple: "/images/logo-light.png",
   },
 };
