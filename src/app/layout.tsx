@@ -1,5 +1,6 @@
 import "@/app/globals.css";
 import Header from "@/components/Navbar";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 
 export default function RootLayout({
   children,
@@ -9,8 +10,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="text-gray-900 antialiased">
-        <Header />
-        {children}
+        <LanguageProvider>
+          <Header />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
@@ -30,4 +33,3 @@ export const metadata = {
     ],
   },
 };
-

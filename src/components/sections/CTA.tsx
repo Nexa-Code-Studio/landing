@@ -3,8 +3,11 @@
 import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function CTA() {
+    const { t } = useTranslation();
+
     return (
         <>
             {/* Floating Widget */}
@@ -39,10 +42,10 @@ export default function CTA() {
                         {/* Right: Text (2:3 split) */}
                         <div className="text-center md:text-left md:pl-4 md:col-span-3">
                             <h2 className="text-3xl md:text-5xl font-bold mb-8">
-                                Jangan Biarkan Kompetitor Melangkah Lebih Jauh.
+                                {t.cta.heading}
                             </h2>
                             <p className="text-xl text-gray-300 mb-10">
-                                Konsultasikan kebutuhan software Anda hari ini dan dapatkan estimasi harga secara gratis.
+                                {t.cta.subtitle}
                             </p>
                             <a
                                 href="https://wa.me/6288295477204"
@@ -51,7 +54,7 @@ export default function CTA() {
                                 className="inline-flex items-center gap-2 bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-green-600 transition transform hover:scale-105"
                             >
                                 <MessageCircle size={20} />
-                                Hubungi NexaCode Sekarang
+                                {t.cta.button}
                             </a>
                         </div>
                     </div>

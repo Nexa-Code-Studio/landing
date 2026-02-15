@@ -3,24 +3,9 @@
 import { motion } from "framer-motion";
 import { AlertTriangle, FileSpreadsheet, Layers } from "lucide-react";
 import Image from "next/image";
+import { useTranslation } from "@/i18n/LanguageContext";
 
-const problems = [
-    {
-        icon: FileSpreadsheet,
-        title: "Data Berantakan?",
-        desc: "Laporan stok atau pasien masih pakai kertas/Excel manual. Resiko hilang atau salah input tinggi.",
-    },
-    {
-        icon: Layers,
-        title: "Kurang Profesional?",
-        desc: "Bisnis belum punya 'rumah digital' yang bisa diakses pelanggan. Kredibilitas jadi pertanyaan.",
-    },
-    {
-        icon: AlertTriangle,
-        title: "Butuh Fitur Khusus?",
-        desc: "Aplikasi yang ada di pasaran tidak ada yang cocok dengan alur kerja (SOP) unik bisnis Anda.",
-    },
-];
+const problemIcons = [FileSpreadsheet, Layers, AlertTriangle];
 
 const AnimatedCross = () => (
     <motion.svg
@@ -51,6 +36,8 @@ const AnimatedCross = () => (
 );
 
 export default function ProblemStatement() {
+    const { t } = useTranslation();
+
     return (
         <section className="pt-24 pb-32 md:pb-80 px-6 md:px-14 bg-gray-50">
             <div className="mx-auto max-w-7xl">
@@ -65,11 +52,10 @@ export default function ProblemStatement() {
                             className="text-left mb-10"
                         >
                             <h3 className="text-3xl md:text-3xl font-bold text-gray-900 mb-6 leading-tight">
-                                Masih Mengelola Bisnis Secara Manual?
+                                {t.problemStatement.heading}
                             </h3>
                             <p className="text-xl text-gray-600">
-                                Atau punya masalah yang belum ada aplikasinya? Di era serba cepat ini,
-                                mengandalkan cara lama hanya akan menghambat pertumbuhan bisnis Anda.
+                                {t.problemStatement.description}
                             </p>
                         </motion.div>
 
@@ -92,7 +78,7 @@ export default function ProblemStatement() {
                                 />
                             </div>
 
-                            {/* Floating Elements - Adjusted positions to be closer to head */}
+                            {/* Floating Elements */}
                             <motion.div
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -125,9 +111,9 @@ export default function ProblemStatement() {
 
                     {/* Right Column: Cards */}
                     <div className="space-y-6">
-                        {problems.map((item, index) => (
+                        {t.problemStatement.problems.map((item, index) => (
                             <motion.div
-                                key={item.title}
+                                key={index}
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -158,7 +144,7 @@ export default function ProblemStatement() {
 
                     <div className="relative inline-block">
                         <p className="text-2xl md:text-3xl font-medium text-gray-800">
-                            <span className="text-orange-400 font-bold">NexaCode</span> hadir untuk menjembatani ide dan menyelesaikan masalah Anda.
+                            <span className="text-orange-400 font-bold">NexaCode</span>{t.problemStatement.bottomStatement}
                         </p>
                         {/* Animated Paint Underline */}
                         <svg

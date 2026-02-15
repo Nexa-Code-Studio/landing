@@ -1,8 +1,11 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const id = href.replace('#', '');
@@ -33,14 +36,14 @@ export default function Footer() {
               </span>
             </div>
             <p className="mt-4 text-base leading-relaxed max-w-sm">
-              Kami membangun website dan perangkat lunak yang dirancang khusus untuk memajukan bisnis Anda. Solusi digital tanpa kerumitan.
+              {t.footer.brandDescription}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
             <p className="font-semibold text-gray-900 mb-4">
-              Menu
+              {t.footer.menuTitle}
             </p>
             <ul className="space-y-3">
               <li>
@@ -49,7 +52,7 @@ export default function Footer() {
                   onClick={(e) => handleSmoothScroll(e, '#home')}
                   className="hover:text-orange-400 transition"
                 >
-                  Home
+                  {t.navbar.home}
                 </a>
               </li>
               <li>
@@ -58,7 +61,7 @@ export default function Footer() {
                   onClick={(e) => handleSmoothScroll(e, '#services')}
                   className="hover:text-orange-400 transition"
                 >
-                  Services
+                  {t.navbar.services}
                 </a>
               </li>
               <li>
@@ -67,7 +70,7 @@ export default function Footer() {
                   onClick={(e) => handleSmoothScroll(e, '#portfolio')}
                   className="hover:text-orange-400 transition"
                 >
-                  Portfolio
+                  {t.navbar.portfolio}
                 </a>
               </li>
               <li>
@@ -76,7 +79,7 @@ export default function Footer() {
                   onClick={(e) => handleSmoothScroll(e, '#contact')}
                   className="hover:text-orange-400 transition"
                 >
-                  Contact
+                  {t.navbar.contact}
                 </a>
               </li>
             </ul>
@@ -85,7 +88,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <p className="font-semibold text-gray-900 mb-4">
-              Hubungi Kami
+              {t.footer.contactTitle}
             </p>
             <ul className="space-y-3">
               <li>
@@ -105,7 +108,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-          <span>&copy; {new Date().getFullYear()} NexaCode Studio. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} {t.footer.copyright}</span>
         </div>
       </div>
 

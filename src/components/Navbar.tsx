@@ -4,16 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function Header() {
   const [activeLink, setActiveLink] = useState("#home");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useTranslation();
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "FAQ", href: "#faq" },
+    { name: t.navbar.home, href: "#home" },
+    { name: t.navbar.services, href: "#services" },
+    { name: t.navbar.portfolio, href: "#portfolio" },
+    { name: t.navbar.faq, href: "#faq" },
   ];
 
   // Observe sections to update active nav link when scrolling
@@ -60,7 +63,7 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
           {navLinks.map((link) => (
             <Link
-              key={link.name}
+              key={link.href}
               href={link.href}
               onClick={(e) => {
                 e.preventDefault();
@@ -79,6 +82,8 @@ export default function Header() {
             </Link>
           ))}
 
+          <LanguageSwitcher />
+
           <Link
             href="#contact"
             onClick={(e) => {
@@ -89,7 +94,7 @@ export default function Header() {
             }}
             className="rounded-full bg-orange-400 px-6 py-2.5 text-white hover:bg-orange-400 transition shadow-sm hover:shadow-md hover:shadow-orange-200"
           >
-            Contact
+            {t.navbar.contact}
           </Link>
         </nav>
 
@@ -111,7 +116,7 @@ export default function Header() {
           <div className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 onClick={(e) => {
                   e.preventDefault();
@@ -127,6 +132,10 @@ export default function Header() {
               </a>
             ))}
 
+            <div className="py-3 px-2">
+              <LanguageSwitcher />
+            </div>
+
             <a
               href="#contact"
               onClick={(e) => {
@@ -138,7 +147,7 @@ export default function Header() {
               }}
               className="mt-2 inline-block w-full text-center bg-orange-400 text-white px-4 py-3 rounded-full font-semibold"
             >
-              Contact
+              {t.navbar.contact}
             </a>
           </div>
         </div>

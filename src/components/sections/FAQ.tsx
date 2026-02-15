@@ -3,34 +3,21 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-
-const faqs = [
-    {
-        q: '"Saya nggak paham IT sama sekali, gimana?"',
-        a: "Justru itu tugas kami. Anda cukup tahu beres, kami yang urus semua urusan teknisnya. Kami akan jelaskan dengan bahasa awam.",
-    },
-    {
-        q: '"Bisa buat sistem yang harganya masuk budget UMKM?"',
-        a: "Sangat bisa. Kami menawarkan sistem modular yang bisa dibangun bertahap sesuai kemampuan budget Anda.",
-    },
-    {
-        q: '"Berapa lama pengerjaannya?"',
-        a: "Tergantung kerumitan. Landing page bisa selesai dalam 3-5 hari, sistem kompleks bisa 2-4 minggu.",
-    },
-];
+import { useTranslation } from "@/i18n/LanguageContext";
 
 export default function FAQ() {
+    const { t } = useTranslation();
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
         <section id="faq" className="py-24 px-6 md:px-12 bg-gray-50">
             <div className="mx-auto max-w-3xl">
                 <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-                    Pertanyaan yang Sering Muncul
+                    {t.faq.heading}
                 </h2>
 
                 <div className="space-y-4">
-                    {faqs.map((faq, i) => (
+                    {t.faq.items.map((faq, i) => (
                         <div
                             key={i}
                             className="bg-white rounded-xl border border-gray-200 overflow-hidden"
